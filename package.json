@@ -1,0 +1,41 @@
+{
+  "name": "a11y-safe-autofix",
+  "version": "0.1.0",
+  "description": "Deterministic ESLint fixes for React/TSX accessibility.",
+  "type": "module",
+  "bin": {
+    "a11y-safe-autofix": "dist/cli.js"
+  },
+  "exports": {
+    ": ": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "npm run build && node dist/cli.js --check src",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node test/rules.test.js"
+  },
+  "dependencies": {
+    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^7.18.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PetriLahdelma/a11y-safe-autofix.git"
+  },
+  "homepage": "https://github.com/PetriLahdelma/a11y-safe-autofix#readme",
+  "bugs": {
+    "url": "https://github.com/PetriLahdelma/a11y-safe-autofix/issues"
+  }
+}
