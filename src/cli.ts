@@ -59,8 +59,8 @@ async function main() {
   const text = formatter.format(results);
   if (text) console.log(text);
 
-  const errorCount = results.reduce((sum, r) => sum + r.errorCount, 0);
-  const fixed = results.reduce((sum, r) => sum + (r.output ? 1 : 0), 0);
+  const errorCount = results.reduce((sum: number, r: any) => sum + r.errorCount, 0);
+  const fixed = results.reduce((sum: number, r: any) => sum + (r.output ? 1 : 0), 0);
 
   console.log(`${results.length} file(s) checked, ${fixed} fix(es) applied`);
 
