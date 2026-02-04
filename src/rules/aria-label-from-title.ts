@@ -4,6 +4,17 @@ function getAttr(node: any, name: string): any | undefined {
   return node.attributes?.find((a: any) => a?.type === "JSXAttribute" && a.name?.name === name);
 }
 
+
+function hasMeaningfulChildren(node: any): boolean {
+  const parent = node.parent;
+  const children = parent?.children || [];
+  return children.some((c: any) => {
+    if (c.type === "JSXText") return c.value && c.value.trim().length > 0;
+    if (c.type === "JSXElement") return true;
+    return false;
+  });
+}
+
 function isButtonish(node: any): boolean {
   const name = node.name?.name;
   if (name === "button" || name === "a") return true;
@@ -27,6 +38,7 @@ const rule: Rule.RuleModule = {
     return {
       JSXOpeningElement(node: any) {
         if (!isButtonish(node)) return;
+        if (hasMeaningfulChildren(node)) return;
         if (getAttr(node, "aria-label")) return;
         const title = getAttr(node, "title");
         const value = title?.value?.value;
