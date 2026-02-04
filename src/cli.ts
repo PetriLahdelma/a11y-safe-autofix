@@ -42,7 +42,7 @@ async function main() {
     overrideConfig: {
       parser: "@typescript-eslint/parser",
       parserOptions: { ecmaVersion: 2022, sourceType: "module", ecmaFeatures: { jsx: true } },
-      plugins: { "a11y-safe": plugin },
+      plugins: { "a11y-safe": plugin } as any,
       rules: {
         "a11y-safe/img-alt-empty-when-aria-hidden": "error",
         "a11y-safe/aria-label-from-title": "error",
