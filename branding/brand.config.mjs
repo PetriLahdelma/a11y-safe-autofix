@@ -8,6 +8,7 @@ export default {
   callout: "Dry-run mode is default. Use `--write` only after reviewing the report.",
   quickstart: "npx a11y-safe-autofix --paths .",
   hero: { width: 1600, height: 900 },
+  heroAccent: "none",
   icon: {
     inner: `
 <path d="M256 104 L148 148 V268 C148 338 200 388 256 408 C312 388 364 338 364 268 V148 Z" stroke="{{accent}}" stroke-width="{{stroke}}" stroke-linejoin="round"/>
