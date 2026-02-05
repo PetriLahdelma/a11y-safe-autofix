@@ -1,0 +1,24 @@
+{
+  "filesChecked": 1,
+  "issuesFound": 2,
+  "issuesFixed": 0,
+  "write": false,
+  "issues": [
+    {
+      "file": "examples/input/broken.html",
+      "line": 3,
+      "column": 5,
+      "rule": "img-alt",
+      "message": "Image tag missing alt attribute",
+      "fix": "Add alt=\"\""
+    },
+    {
+      "file": "examples/input/broken.html",
+      "line": 4,
+      "column": 5,
+      "rule": "img-alt",
+      "message": "Image tag missing alt attribute",
+      "fix": "Add alt=\"\""
+    }
+  ]
+}
