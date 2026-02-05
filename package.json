@@ -1,6 +1,6 @@
 {
   "name": "a11y-safe-autofix",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI that applies safe accessibility autofixes with dry-run support.",
   "type": "module",
   "bin": {
