@@ -40,7 +40,7 @@ npx a11y-safe-autofix --paths .
 ```
 
 ## Demo
-![Terminal Demo](branding/screenshots/terminal-demo.svg)
+![Demo](branding/demos/demo.gif)
 
 ```bash
 a11y-safe-autofix --paths src --check
