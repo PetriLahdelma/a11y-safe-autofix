@@ -20,7 +20,8 @@
     "build": "tsc -p tsconfig.json",
     "dev": "npm run build && node dist/cli.js --check src",
     "lint": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && node test/rules.test.js"
+    "test": "npm run build && node test/rules.test.js",
+    "render": "node scripts/render-hero.mjs && node scripts/render-og.mjs && node scripts/render-before-after.mjs && node scripts/render-readme.mjs"
   },
   "dependencies": {
     "eslint": "^8.57.0",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
-    "@types/eslint": "^8.56.10"
+    "@types/eslint": "^8.56.10",
+    "playwright": "^1.49.0"
   }
 }
