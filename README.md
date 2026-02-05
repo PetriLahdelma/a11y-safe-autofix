@@ -3,7 +3,7 @@
   <img alt="a11y-safe-autofix hero" src="branding/hero.png" width="100%">
 </picture>
 
-# a11y-safe-autofix
+# A11y Safe Autofix
 Apply conservative, low-risk accessibility fixes with a dry-run first. Dry-run safe fixes, then apply deterministic changes.
 
 ![CI](https://github.com/PetriLahdelma/a11y-safe-autofix/actions/workflows/ci.yml/badge.svg) ![Release](https://img.shields.io/github/v/release/PetriLahdelma/a11y-safe-autofix) ![License](https://img.shields.io/github/license/PetriLahdelma/a11y-safe-autofix) ![Stars](https://img.shields.io/github/stars/PetriLahdelma/a11y-safe-autofix)
