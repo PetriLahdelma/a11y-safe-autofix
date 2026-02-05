@@ -1,31 +1,32 @@
 {
   "name": "a11y-safe-autofix",
   "version": "0.1.0",
-  "description": "Deterministic ESLint fixes for React/TSX accessibility.",
+  "description": "CLI that applies safe accessibility autofixes with dry-run support.",
   "type": "module",
   "bin": {
-    "a11y-safe-autofix": "dist/cli.js"
+    "a11y-safe-autofix": "dist/index.js"
   },
   "exports": {
-    ": ": "./dist/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "files": [
     "dist",
     "README.md",
     "LICENSE",
-    "CHANGELOG.md",
-    "docs"
+    "CHANGELOG.md"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "dev": "npm run build && node dist/cli.js --check src",
+    "dev": "npm run build && node dist/index.js --paths test/fixtures",
     "lint": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && node test/rules.test.js",
-    "render": "node scripts/render-hero.mjs && node scripts/render-og.mjs && node scripts/render-before-after.mjs && node scripts/render-readme.mjs"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node test/cli.test.js"
   },
   "dependencies": {
-    "eslint": "^8.57.0",
-    "@typescript-eslint/parser": "^7.18.0"
+    "fast-glob": "^3.3.2"
   },
   "engines": {
     "node": ">=20"
@@ -41,7 +42,6 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
-    "@types/eslint": "^8.56.10",
-    "playwright": "^1.49.0"
+    "typescript": "^5.5.4"
   }
 }

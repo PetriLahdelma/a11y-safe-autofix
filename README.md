@@ -1,35 +1,90 @@
 # a11y-safe-autofix
+Apply conservative, low-risk accessibility fixes with a dry-run first.
 
-Deterministic accessibility fixes that never guess.
+- Scans HTML files for safe autofix opportunities.
+- Current fix: add `alt=""` to `<img>` tags missing an `alt` attribute.
+- Dry-run by default, with clear exit codes for CI gating.
 
-![CI](https://github.com/PetriLahdelma/a11y-safe-autofix/actions/workflows/ci.yml/badge.svg) ![Release](https://img.shields.io/github/v/release/PetriLahdelma/a11y-safe-autofix) ![License](https://img.shields.io/github/license/PetriLahdelma/a11y-safe-autofix) ![Stars](https://img.shields.io/github/stars/PetriLahdelma/a11y-safe-autofix)
+**Try in 10 seconds**
+```bash
+npx a11y-safe-autofix --paths .
+```
 
-![Hero](assets/hero.png?20260205)
+**Demo**
+Run once in dry-run mode, then run with `--write` to apply the same fixes.
+
+Star if this saves you time.  
+→ Buzz Kit: /buzz-kit
+
+## Requirements
+
+- Node.js 20+
 
 ## Quickstart
 
 ```bash
-npx a11y-safe-autofix --check src
+npx a11y-safe-autofix --paths .
 ```
 
-## Demo
+## Usage
 
 ```bash
-a11y-safe-autofix --apply src
+a11y-safe-autofix --paths src
+a11y-safe-autofix --paths src --write
+a11y-safe-autofix --paths . --check --json
 ```
 
-## Why This Exists
+**Options**
 
-CI-friendly fixes with zero heuristics and no semantic risk.
+- `--paths <globs>` Comma-separated paths or glob patterns (default `.`).
+- `--extensions <list>` Comma-separated extensions (default `html,htm`).
+- `--write` Write fixes to disk (default is dry-run).
+- `--dry-run` Do not modify files (default).
+- `--check` Exit `2` if issues are found.
+- `--json` Emit machine-readable JSON.
 
-## FAQ
+## Output
 
-- **Does it modify code?** Only in `--apply` mode.
-- **Is it ESLint-compatible?** Yes, it is a plugin + CLI.
+```json
+{
+  "filesChecked": 3,
+  "issuesFound": 1,
+  "issuesFixed": 0,
+  "write": false,
+  "issues": [
+    {
+      "file": "src/index.html",
+      "line": 12,
+      "column": 5,
+      "rule": "img-alt",
+      "message": "Image tag missing alt attribute",
+      "fix": "Add alt=\"\""
+    }
+  ]
+}
+```
+
+## Exit Codes
+
+- `0` Success
+- `1` Runtime/config error
+- `2` Issues found (when `--check` is set)
+
+## Safe Fixes (Current)
+
+- `img-alt`: add `alt=""` to `<img>` tags without an `alt` attribute.
+
+## Troubleshooting
+
+- **No files matched**: Check `--paths` and `--extensions`.
+- **No fixes applied**: You are likely in dry-run mode; add `--write`.
+- **Unexpected changes**: The tool only modifies `<img>` tags missing `alt`.
+- **CI failed with exit 2**: Run without `--check` to preview issues.
+- **Parsing quirks**: The fixer is regex-based; report edge cases in Issues.
 
 ## Contributing
 
-See `CONTRIBUTING.md` for rule and test guidance.
+See `CONTRIBUTING.md` for local development.
 
 ## License
 

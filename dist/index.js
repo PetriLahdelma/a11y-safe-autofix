@@ -3,24 +3,6 @@ import fs from "node:fs";
 import path from "node:path";
 import fg from "fast-glob";
 
-type Options = {
-  paths: string[];
-  extensions: string[];
-  write: boolean;
-  json: boolean;
-  check: boolean;
-  help: boolean;
-};
-
-type Issue = {
-  file: string;
-  line: number;
-  column: number;
-  rule: string;
-  message: string;
-  fix: string;
-};
-
 const HELP_TEXT = `
 a11y-safe-autofix
 Apply safe accessibility autofixes (currently: missing img alt).
@@ -49,8 +31,8 @@ function printHelp() {
   console.log(HELP_TEXT);
 }
 
-function parseArgs(argv: string[]): Options {
-  const opts: Options = {
+function parseArgs(argv) {
+  const opts = {
     paths: ["."],
     extensions: ["html", "htm"],
     write: false,
@@ -105,13 +87,13 @@ function parseArgs(argv: string[]): Options {
   return opts;
 }
 
-function hasGlob(value: string): boolean {
+function hasGlob(value) {
   return /[*?[\]{}]/.test(value);
 }
 
-function normalizePatterns(pathsList: string[], extensions: string[]): string[] {
+function normalizePatterns(pathsList, extensions) {
   const extPattern = extensions.length > 0 ? `**/*.{${extensions.join(",")}}` : "**/*";
-  const patterns: string[] = [];
+  const patterns = [];
   for (const entry of pathsList) {
     const value = entry.trim();
     if (!value) continue;
@@ -130,19 +112,19 @@ function normalizePatterns(pathsList: string[], extensions: string[]): string[] 
   return patterns;
 }
 
-function indexToLineCol(text: string, index: number): { line: number; column: number } {
+function indexToLineCol(text, index) {
   const slice = text.slice(0, index);
   const lines = slice.split("\n");
   return { line: lines.length, column: lines[lines.length - 1].length + 1 };
 }
 
-function fixHtml(content: string, file: string): { updated: string; issues: Issue[] } {
-  const issues: Issue[] = [];
+function fixHtml(content, file) {
+  const issues = [];
   const imgRegex = /<img\b[^>]*>/gi;
 
   const updated = content.replace(imgRegex, (tag, offset) => {
     if (/\balt\s*=\s*/i.test(tag)) return tag;
-    const location = indexToLineCol(content, offset as number);
+    const location = indexToLineCol(content, offset);
     issues.push({
       file,
       line: location.line,
@@ -158,7 +140,7 @@ function fixHtml(content: string, file: string): { updated: string; issues: Issu
 }
 
 async function main() {
-  let opts: Options;
+  let opts;
   try {
     opts = parseArgs(process.argv.slice(2));
   } catch (err) {
@@ -188,7 +170,7 @@ async function main() {
 
   let totalIssues = 0;
   let fixedCount = 0;
-  const allIssues: Issue[] = [];
+  const allIssues = [];
 
   for (const file of files) {
     const content = fs.readFileSync(file, "utf8");
