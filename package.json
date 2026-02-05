@@ -25,7 +25,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run build && node test/cli.test.js",
     "brand:build": "node scripts/brand-build.mjs",
-    "brand:screenshots": "node scripts/brand-screenshots.mjs"
+    "brand:screenshots": "node scripts/brand-screenshots.mjs",
+    "brand:demo": "node scripts/brand-demo.mjs"
   },
   "dependencies": {
     "fast-glob": "^3.3.2"
