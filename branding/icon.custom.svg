@@ -4,14 +4,11 @@
 <path d="M32 22C34.2091 22 36 20.2091 36 18C36 15.7909 34.2091 14 32 14C29.7909 14 28 15.7909 28 18C28 20.2091 29.7909 22 32 22Z" fill="white"/>
 <path d="M20 26L32 30L44 26" stroke="white" stroke-width="3" stroke-linecap="round"/>
 <path d="M32 30V45.75M32 45.75L24 51M32 45.75L40 51" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M54 18L55 20L57 21L55 22L54 24L53 22L51 21L53 20L54 18Z" fill="#FFD54F"/>
-<path d="M46 12L47 13.5L48.5 14L47 14.5L46 16L45 14.5L43.5 14L45 13.5L46 12Z" fill="#FFD54F"/>
-<path d="M54 29L54.5 30L55.5 30.5L54.5 31L54 32L53.5 31L52.5 30.5L53.5 30L54 29Z" fill="#FFD54F"/>
 </g>
 <defs>
 <linearGradient id="paint0_linear_313_20" x1="0" y1="0" x2="4096" y2="4096" gradientUnits="userSpaceOnUse">
-<stop stop-color="#66BB6A"/>
-<stop offset="1" stop-color="#43A047"/>
+<stop stop-color="#1680EB"/>
+<stop offset="1" stop-color="#171AEB"/>
 </linearGradient>
 <clipPath id="clip0_313_20">
 <rect width="64" height="64" fill="white"/>
