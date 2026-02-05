@@ -8,7 +8,7 @@ Apply conservative, low-risk accessibility fixes with a dry-run first. Dry-run b
 
 **Type:** CLI (Node.js)
 
-![CI](https://github.com/PetriLahdelma/a11y-safe-autofix/actions/workflows/ci.yml/badge.svg) ![Release](https://img.shields.io/github/v/release/PetriLahdelma/a11y-safe-autofix) ![License](https://img.shields.io/github/license/PetriLahdelma/a11y-safe-autofix) ![Stars](https://img.shields.io/github/stars/PetriLahdelma/a11y-safe-autofix)
+![CI](https://github.com/PetriLahdelma/a11y-safe-autofix/actions/workflows/ci.yml/badge.svg) ![Release](https://img.shields.io/github/v/release/PetriLahdelma/a11y-safe-autofix) ![Provenance](https://img.shields.io/badge/npm%20provenance-verified-brightgreen?logo=npm) ![License](https://img.shields.io/github/license/PetriLahdelma/a11y-safe-autofix) ![Stars](https://img.shields.io/github/stars/PetriLahdelma/a11y-safe-autofix)
 
 > [!IMPORTANT]
 > Dry-run mode is default. Use `--write` only after reviewing the report.
