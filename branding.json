@@ -1,0 +1,60 @@
+{
+  "name": "a11y-safe-autofix",
+  "tagline": "Deterministic accessibility fixes that never guess.",
+  "accent": [
+    "#f59e0b",
+    "#ef4444"
+  ],
+  "logo": "assets/logo.svg",
+  "badges": [
+    {
+      "label": "version",
+      "value": "v0.1.0"
+    },
+    {
+      "label": "license",
+      "value": "MIT"
+    },
+    {
+      "label": "ci",
+      "value": "passing"
+    },
+    {
+      "label": "stars",
+      "value": "github"
+    }
+  ],
+  "badgesMd": [
+    {
+      "label": "CI",
+      "url": "https://github.com/PetriLahdelma/a11y-safe-autofix/actions/workflows/ci.yml/badge.svg"
+    },
+    {
+      "label": "Release",
+      "url": "https://img.shields.io/github/v/release/PetriLahdelma/a11y-safe-autofix"
+    },
+    {
+      "label": "License",
+      "url": "https://img.shields.io/github/license/PetriLahdelma/a11y-safe-autofix"
+    },
+    {
+      "label": "Stars",
+      "url": "https://img.shields.io/github/stars/PetriLahdelma/a11y-safe-autofix"
+    }
+  ],
+  "proof": "Proof: safe fixes only, no behavior surprises.",
+  "beforeAfter": {
+    "before": "Ambiguous a11y suggestions",
+    "after": "Provably-safe automated fixes"
+  },
+  "quickstart": "```bash\nnpx a11y-safe-autofix --check src\n```",
+  "demo": "```bash\na11y-safe-autofix --apply src\n```",
+  "why": "CI-friendly fixes with zero heuristics and no semantic risk.",
+  "faq": "- **Does it modify code?** Only in `--apply` mode.\n- **Is it ESLint-compatible?** Yes, it is a plugin + CLI.",
+  "contributing": "See `CONTRIBUTING.md` for rule and test guidance.",
+  "license": "MIT",
+  "hero": {
+    "width": 1600,
+    "height": 900
+  }
+}
