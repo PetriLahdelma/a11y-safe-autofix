@@ -1,8 +1,10 @@
 # a11y-safe-autofix
 
-Deterministic, provably-safe accessibility fixes for React/TSX.
+![Hero](assets/hero.png)
 
-Tagline: Only the fixes that cannot make your UI worse.
+![CI](https://github.com/PetriLahdelma/a11y-safe-autofix/actions/workflows/ci.yml/badge.svg) ![Release](https://img.shields.io/github/v/release/PetriLahdelma/a11y-safe-autofix) ![License](https://img.shields.io/github/license/PetriLahdelma/a11y-safe-autofix) ![Stars](https://img.shields.io/github/stars/PetriLahdelma/a11y-safe-autofix)
+
+Deterministic accessibility fixes that never guess.
 
 ## Quickstart
 ```bash
@@ -13,51 +15,16 @@ npx a11y-safe-autofix --check src
 ```bash
 a11y-safe-autofix --apply src
 ```
-Expected output:
-```
-2 file(s) checked, 1 fix applied
-```
 
-## Screenshots
-Placeholder: add screenshots in `docs/` and link them here.
+## Why This Exists
+CI-friendly fixes with zero heuristics and no semantic risk.
 
-## What it does
-- ESLint plugin with a small set of safe, deterministic fixes
-- CLI for check mode (CI) and apply mode (local)
-- Rule docs and examples included
+## FAQ
+- **Does it modify code?** Only in `--apply` mode.
+- **Is it ESLint-compatible?** Yes, it is a plugin + CLI.
 
-## CLI
-```bash
-a11y-safe-autofix --check <paths>
-a11y-safe-autofix --apply <paths>
-```
-Options:
-- `--check` (default)
-- `--apply`
-- `--ext .ts,.tsx,.jsx`
-- `--config <path>` (JSON with rule overrides)
-
-## ESLint usage
-```js
-import a11ySafe from "a11y-safe-autofix";
-
-export default [
-  {
-    plugins: { "a11y-safe": a11ySafe },
-    rules: {
-      "a11y-safe/img-alt-empty-when-aria-hidden": "error",
-      "a11y-safe/aria-label-from-title": "error"
-    }
-  }
-];
-```
-
-## Manual publish steps (optional)
-```bash
-npm login
-npm publish --access public
-```
-If the name is taken, consider scoped naming like `@petri-lahdelma/a11y-safe-autofix`.
+## Contributing
+See `CONTRIBUTING.md` for rule and test guidance.
 
 ## License
 MIT
