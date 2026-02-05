@@ -1,30 +1,37 @@
+<picture>
+  <source srcset="branding/hero.svg" type="image/svg+xml">
+  <img alt="a11y-safe-autofix hero" src="branding/hero.png" width="100%">
+</picture>
+
 # a11y-safe-autofix
-Apply conservative, low-risk accessibility fixes with a dry-run first.
+Apply conservative, low-risk accessibility fixes with a dry-run first. Dry-run safe fixes, then apply deterministic changes.
 
-- Scans HTML files for safe autofix opportunities.
-- Current fix: add `alt=""` to `<img>` tags missing an `alt` attribute.
-- Dry-run by default, with clear exit codes for CI gating.
+![CI](https://github.com/PetriLahdelma/a11y-safe-autofix/actions/workflows/ci.yml/badge.svg) ![Release](https://img.shields.io/github/v/release/PetriLahdelma/a11y-safe-autofix) ![License](https://img.shields.io/github/license/PetriLahdelma/a11y-safe-autofix) ![Stars](https://img.shields.io/github/stars/PetriLahdelma/a11y-safe-autofix)
 
-**Try in 10 seconds**
+> [!IMPORTANT]
+> Dry-run mode is default. Use `--write` only after reviewing the report.
+
+## Quickstart
 ```bash
 npx a11y-safe-autofix --paths .
 ```
 
-**Demo**
-Run once in dry-run mode, then run with `--write` to apply the same fixes.
+## Demo
+![Terminal Demo](branding/screenshots/terminal-demo.svg)
 
-Star if this saves you time.  
-→ Buzz Kit: /buzz-kit
+```bash
+a11y-safe-autofix --paths src --check
+```
+
+## Docs
+Start here: [Requirements](#requirements) · [Usage](#usage) · [Output](#output) · [Exit Codes](#exit-codes) · [Safe Fixes (Current)](#safe-fixes-current) · [Troubleshooting](#troubleshooting)
+
+## Contributing
+See `CONTRIBUTING.md`.
 
 ## Requirements
 
 - Node.js 20+
-
-## Quickstart
-
-```bash
-npx a11y-safe-autofix --paths .
-```
 
 ## Usage
 
@@ -82,10 +89,7 @@ a11y-safe-autofix --paths . --check --json
 - **CI failed with exit 2**: Run without `--check` to preview issues.
 - **Parsing quirks**: The fixer is regex-based; report edge cases in Issues.
 
-## Contributing
-
-See `CONTRIBUTING.md` for local development.
-
 ## License
 
 MIT
+
