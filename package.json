@@ -2,6 +2,14 @@
   "name": "a11y-safe-autofix",
   "version": "0.1.1",
   "description": "CLI that applies safe accessibility autofixes with dry-run support.",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "autofix",
+    "cli",
+    "html",
+    "lint"
+  ],
   "type": "module",
   "bin": {
     "a11y-safe-autofix": "dist/index.js"
